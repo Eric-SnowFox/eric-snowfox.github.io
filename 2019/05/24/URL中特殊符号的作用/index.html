@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://qyf.kim">
-  <title>EricFan的博客</title>
+  <title>URL中“#” “？” “&amp;”号的作用 | EricFan的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="极客,Coding,Geek">
-<meta property="og:type" content="website">
-<meta property="og:title" content="EricFan的博客">
-<meta property="og:url" content="http://qyf.kim/index.html">
+  <meta name="description" content="URL中“#” “？” “&amp;amp;”号的作用 # ？ &amp;amp;  1、10年9月，twitter改版。一个显著变化，就是URL加入了”#!”符号。比如，改版前的用户主页网址为1http://twitter.com/username">
+<meta name="keywords" content="网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="URL中“#” “？” “&amp;”号的作用">
+<meta property="og:url" content="http://qyf.kim/2019/05/24/URL中特殊符号的作用/index.html">
 <meta property="og:site_name" content="EricFan的博客">
+<meta property="og:description" content="URL中“#” “？” “&amp;amp;”号的作用 # ？ &amp;amp;  1、10年9月，twitter改版。一个显著变化，就是URL加入了”#!”符号。比如，改版前的用户主页网址为1http://twitter.com/username">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-24T06:13:27.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EricFan的博客">
+<meta name="twitter:title" content="URL中“#” “？” “&amp;”号的作用">
+<meta name="twitter:description" content="URL中“#” “？” “&amp;amp;”号的作用 # ？ &amp;amp;  1、10年9月，twitter改版。一个显著变化，就是URL加入了”#!”符号。比如，改版前的用户主页网址为1http://twitter.com/username">
   
     <link rel="alternative" href="/atom.xml" title="EricFan的博客" type="application/atom+xml">
   
@@ -157,16 +161,14 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-URL中特殊符号的作用" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-URL中特殊符号的作用" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/24/URL中特殊符号的作用/">URL中“#” “？” “&amp;”号的作用</a>
+    <h1 class="article-title" itemprop="name">
+      URL中“#” “？” “&amp;”号的作用
     </h1>
   
 
@@ -185,9 +187,36 @@ var _hmt = _hmt || [];
 <li>&amp;</li>
 </ol>
 <h2 id="1、"><a href="#1、" class="headerlink" title="1、"></a>1、</h2><p>10年9月，twitter改版。一个显著变化，就是URL加入了”#!”符号。比如，改版前的用户主页网址为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//twitter.com/username</span></span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2019/05/24/URL中特殊符号的作用/#more">more >></a>
-        
+ <a id="more"></a>
+<p>改版后，就变成了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//twitter.com/#!/username</span></span><br></pre></td></tr></table></figure></p>
+<p>　　这是主流网站第一次将”#”大规模用于重要URL中。这表明井号（Hash）的作用正在被重新认识。本文根据HttpWatch的文章，整理与井号有关的所有重要知识点。<br>一、#的涵义<br>　　#代表网页中的一个位置。其右面的字符，就是该位置的标识符。比如，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//www.example.com/index.html#print</span></span><br></pre></td></tr></table></figure></p>
+<p>　　就代表网页index.html的print位置。浏览器读取这个URL后，会自动将print位置滚动至可视区域。<br>　　为网页位置指定标识符，有两个方法。一是使用锚点，比如<code>&lt;a name=&quot;print&quot;&gt;&lt;/a&gt;</code>，二是使用id属性，比如<code>&lt;div id=&quot;print&quot;&gt;</code>。</p>
+<p>二、HTTP请求不包括“#”<br>　　“#”是用来指导浏览器动作的，对服务器端完全无用。所以，HTTP请求中不包括#。<br>比如，访问下面的网址，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//www.example.com/index.html#print</span></span><br></pre></td></tr></table></figure></p>
+<p>浏览器实际发出的请求是这样的：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /index.html HTTP/<span class="number">1.1</span></span><br><span class="line">Host: www.example.com</span><br></pre></td></tr></table></figure></p>
+<p>三、”#“后的字符<br>　　在第一个#后面出现的任何字符，都会被浏览器解读为位置标识符。这意味着，这些字符都不会被发送到服务器端。<br>比如，下面URL的原意是指定一个颜色值：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//www.example.com/?color=#fff</span></span><br></pre></td></tr></table></figure></p>
+<p>但是，浏览器实际发出的请求是：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET /?color= HTTP/<span class="number">1.1</span></span><br><span class="line">Host: www.example.com</span><br></pre></td></tr></table></figure></p>
+<p> 　　</p>
+<p>四、改变#不触发网页重载<br>　　单单改变#后的部分，浏览器只会滚动到相应位置，不会重新加载网页。<br>比如，从<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//www.example.com/index.html#location1</span></span><br></pre></td></tr></table></figure></p>
+<p>改成<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//www.example.com/index.html#location2</span></span><br></pre></td></tr></table></figure></p>
+<p>浏览器不会重新向服务器请求index.html。</p>
+<p>五、改变#会改变浏览器的访问历史<br>　　每一次改变#后的部分，都会在浏览器的访问历史中增加一个记录，使用”后退”按钮，就可以回到上一个位置。这对于ajax应用程序特别有用，可以用不同的#值，表示不同的访问状态，然后向用户给出可以访问某个状态的链接。值得注意的是，上述规则对IE 6和IE 7不成立，它们不会因为#的改变而增加历史记录。
+　　</p>
+<p>六、window.location.hash读取”#”值<br>　　window.location.hash这个属性可读可写。读取时，可以用来判断网页状态是否改变；写入时，则会在不重载网页的前提下，创造一条访问历史记录。
+　　</p>
+<p>七、onhashchange事件<br>　　这是一个HTML 5新增的事件，当#值发生变化时，就会触发这个事件。IE8+、Firefox 3.6+、Chrome 5+、Safari 4.0+支持该事件。<br>　　它的使用方法有三种：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onhashchange = func;</span><br><span class="line">&lt;body onhashchange=<span class="string">"func();"</span>&gt;</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"hashchange"</span>,func,<span class="literal">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p>　　对于不支持onhashchange的浏览器，可以用setInterval监控location.hash的变化。</p>
+<p>八、Google抓取#的机制<br>　　默认情况下，Google的网络蜘蛛忽视URL的“#”部分。<br>　　但是，Google还规定，如果你希望Ajax生成的内容被浏览引擎读取，那么URL中可以使用”#!”，Google会自动将其后面的内容转成查询字符串_escaped_fragment_的值。<br>　　比如，Google发现新版twitter的URL：<br>　　<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//twitter.com/#!/username</span></span><br></pre></td></tr></table></figure></p>
+<p>　　就会自动抓取另一个URL：<br>　　<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//twitter.com/?_escaped_fragment_=/username</span></span><br></pre></td></tr></table></figure></p>
+<p>　　通过这种机制，Google就可以索引动态的Ajax内容。</p>
+<p> 注：</p>
+<p>AJAX = 异步 JavaScript和XML（标准通用标记语言的子集）。AJAX 是一种用于创建快速动态网页的技术。</p>
+<h2 id="2、-“-”"><a href="#2、-“-”" class="headerlink" title="2、 “?”"></a>2、 “?”</h2><p>1）连接作用：比如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//www.xxx.com/Show.asp?id=77&amp;nameid=2905210001&amp;page=1</span></span><br></pre></td></tr></table></figure></p>
+<p>2）清除缓存：比如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//www.xxxxx.com/index.html </span></span><br><span class="line">http:<span class="comment">//www.xxxxx.com/index.html?test123123</span></span><br></pre></td></tr></table></figure></p>
+<p>两个url打开的页面一样，但是后面这个有问号，说明不调用缓存的内容，而认为是一个新地址，重新读取。</p>
+<h2 id="3、“-amp-”"><a href="#3、“-amp-”" class="headerlink" title="3、“&amp;”"></a>3、“&amp;”</h2><p>不同参数的间隔符</p>
+<p>参考</p>
+<p><a href="http://blog.sina.com.cn/s/blog_6d3a29310100w67y.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_6d3a29310100w67y.html</a><br><a href="http://dreamweaver.abang.com/od/dwskill/a/html-wenhao.htm" target="_blank" rel="noopener">http://dreamweaver.abang.com/od/dwskill/a/html-wenhao.htm</a><br><a href="http://www.ruanyifeng.com/blog/2011/03/url_hash.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/03/url_hash.html</a></p>
+
       
 
       
@@ -209,16 +238,75 @@ var _hmt = _hmt || [];
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/05/24/URL中特殊符号的作用/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://api.k780.com:88/?app=qr.get&data=http://qyf.kim/2019/05/24/URL中特殊符号的作用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/04/04/使用git搭建的hexo的一些基本命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HEXO基本命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -238,159 +326,14 @@ var _hmt = _hmt || [];
 
 
 
-
   
-    <article id="post-使用git搭建的hexo的一些基本命令" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/04/使用git搭建的hexo的一些基本命令/">HEXO基本命令</a>
-    </h1>
   
 
-        
-        <a href="/2019/04/04/使用git搭建的hexo的一些基本命令/" class="archive-article-date">
-  	<time datetime="2019-04-04T03:40:28.320Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>基本命令<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new "postName" #新建文章</span><br><span class="line">hexo new page "pageName" #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）</span><br><span class="line">hexo deploy #部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2019/04/04/使用git搭建的hexo的一些基本命令/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/04/使用git搭建的hexo的一些基本命令/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-初心" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/29/初心/">初心</a>
-    </h1>
   
 
-        
-        <a href="/2019/03/29/初心/" class="archive-article-date">
-  	<time datetime="2019-03-29T07:24:06.954Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>&emsp;既然搭建了一个自己的博客，而且还购买了域名，那就每月努力更新博客吧！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print (<span class="string">"Hello World !"</span>)</span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/03/29/初心/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -413,8 +356,8 @@ var _hmt = _hmt || [];
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
